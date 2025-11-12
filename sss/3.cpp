@@ -22,7 +22,7 @@
 
 // int main(){
 //     A obj1;
-//     A obj2;
+//     B obj2;
 //     fun(obj1 , obj2);
 // }
 
@@ -55,7 +55,7 @@ void fun(A o1,B o2){
 
 int main(){
     A obj1;
-    A obj2;
+    B obj2;
     obj1.set(2);
     obj2.set(3);
     fun(obj1 , obj2);
