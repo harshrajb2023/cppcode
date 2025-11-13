@@ -8,8 +8,15 @@ int main(){
   vector<int> ::iterator it=v.begin();
   cout<<(*it);
 }
+OUTPUT
+1
 
+// Explanation
+// v.begin() returns an iterator pointing to the first element of the vector.
+// it is of type vector<int>::iterator.
 
+*it dereferences the iterator, i.e., it accesses the value that the iterator points to.
+//  vector<int> ::iterator it=v.begin(); // 'it' points to the first element
 
 //    m-2
 #include<bits/stdc++.h>
