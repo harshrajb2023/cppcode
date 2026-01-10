@@ -1,0 +1,189 @@
+🧩 Problem 1: Division by Zero Exception
+🔹 Problem Statement
+
+Write a C++ program to handle division by zero using exception handling.
+
+🔹 Code
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a = 10, b = 0;
+
+    try {
+        if (b == 0)
+            throw "Division by zero error";
+        cout << "Result: " << a / b;
+    }
+    catch (const char* msg) {
+        cout << "Exception caught: " << msg;
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: Division by zero error
+
+
+
+
+
+🧩 Problem 2: Handling Negative Number
+🔹 Problem Statement
+
+Check if a number is negative and throw an exception if it is.
+
+🔹 Code
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = -5;
+
+    try {
+        if (num < 0)
+            throw num;
+        cout << "Number is positive";
+    }
+    catch (int n) {
+        cout << "Exception caught: Negative number " << n;
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: Negative number -5
+
+
+
+
+
+
+
+🧩 Problem 3: Array Index Out of Range
+🔹 Problem Statement
+
+Handle an array index out of range error using exceptions.
+
+🔹 Code
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[3] = {1, 2, 3};
+
+    try {
+        int index = 5;
+        if (index >= 3)
+            throw "Index out of range";
+        cout << arr[index];
+    }
+    catch (const char* msg) {
+        cout << "Exception caught: " << msg;
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: Index out of range
+
+
+
+
+
+
+
+
+🧩 Problem 4: Using Standard Exception Class
+🔹 Problem Statement
+
+Demonstrate use of standard C++ exceptions.
+
+🔹 Code
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+int main() {
+    try {
+        throw runtime_error("File not found");
+    }
+    catch (exception& e) {
+        cout << "Exception caught: " << e.what();
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: File not found
+
+
+
+
+
+
+
+
+🧩 Problem 5: User-Defined Exception
+🔹 Problem Statement
+
+Create and handle a custom exception in C++.
+
+🔹 Code
+#include <iostream>
+using namespace std;
+
+class MyException {
+public:
+    const char* what() {
+        return "Custom Exception Occurred";
+    }
+};
+
+int main() {
+    try {
+        throw MyException();
+    }
+    catch (MyException e) {
+        cout << "Exception caught: " << e.what();
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: Custom Exception Occurred
+
+
+
+
+
+
+
+
+🧩 Problem 6: Catch All Exception
+🔹 Problem Statement
+
+Handle unknown exceptions using catch(...).
+
+🔹 Code
+#include <iostream>
+using namespace std;
+
+int main() {
+    try {
+        throw 10.5;
+    }
+    catch (...) {
+        cout << "Exception caught: Unknown type";
+    }
+
+    return 0;
+}
+
+🔹 Output
+Exception caught: Unknown type
