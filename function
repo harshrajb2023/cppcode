@@ -1,0 +1,136 @@
+Function Overriding
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void show() {
+        cout << "Parent show" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "Child show" << endl;
+    }
+};
+
+int main() {
+    Parent* p;
+    Child c;
+    p = &c;
+    p->show();
+}
+
+
+Output
+
+Child show
+
+2️⃣ Function Hiding
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void show(int x) {
+        cout << "Parent show: " << x << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void show() {
+        cout << "Child show" << endl;
+    }
+};
+
+int main() {
+    Child c;
+    c.show();
+    c.Parent::show(10);
+}
+
+
+Output
+
+Child show
+Parent show: 10
+
+3️⃣ Function Overloading
+#include <iostream>
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int add(int a, int b, int c) {
+    return a + b + c;
+}
+
+int main() {
+    cout << add(2, 3) << endl;
+    cout << add(1, 2, 3) << endl;
+}
+
+
+Output
+
+5
+6
+
+4️⃣ Virtual Function
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    virtual void display() {
+        cout << "Base display" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() {
+        cout << "Derived display" << endl;
+    }
+};
+
+int main() {
+    Base* b = new Derived();
+    b->display();
+}
+
+
+Output
+
+Derived display
+
+5️⃣ Pure Virtual Function
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() = 0;
+};
+
+class Circle : public Shape {
+public:
+    void draw() {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+int main() {
+    Shape* s = new Circle();
+    s->draw();
+}
+
+
+Output
+
+Drawing Circle
