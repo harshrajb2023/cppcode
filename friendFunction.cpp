@@ -63,7 +63,7 @@ int main() {
 }
 
 
-
+# OUTPUT
 🔍 Account Audit Report
 Holder Name : Harsh
 Balance     : ₹8000
@@ -83,3 +83,105 @@ Balance     : ₹5000
 Holder Name : Amit
 Balance     : ₹7000
 -----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ➕ Advanced Operator Overloading Using Friend Function (C++)
+📌 Problem Statement
+Create a Student Result Management System in C++ where:
+Student marks are stored as private data.
+The ‘+’ operator is overloaded to combine marks of two students.
+The ‘<<’ operator is overloaded to display private data.
+Both operators must be implemented using friend functions.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int marks;
+
+public:
+    Student(string n, int m) {
+        name = n;
+        marks = m;
+    }
+
+    // Friend operator overloading
+    friend Student operator+(const Student& s1, const Student& s2);
+    friend ostream& operator<<(ostream& out, const Student& s);
+};
+
+// Overload + operator (combine marks)
+Student operator+(const Student& s1, const Student& s2) {
+    return Student(s1.name + " & " + s2.name, s1.marks + s2.marks);
+}
+
+// Overload << operator (display private data)
+ostream& operator<<(ostream& out, const Student& s) {
+    out << "Student Name : " << s.name << endl;
+    out << "Total Marks  : " << s.marks << endl;
+    return out;
+}
+
+int main() {
+    Student s1("Harsh", 85);
+    Student s2("Amit", 90);
+
+    Student combined = s1 + s2;
+
+    cout << "📘 Student 1 Details\n" << s1 << endl;
+    cout << "📘 Student 2 Details\n" << s2 << endl;
+    cout << "📊 Combined Result\n" << combined;
+
+    return 0;
+}
+
+# OUTPUT
+📘 Student 1 Details
+Student Name : Harsh
+Total Marks  : 85
+
+📘 Student 2 Details
+Student Name : Amit
+Total Marks  : 90
+
+📊 Combined Result
+Student Name : Harsh & Amit
+Total Marks  : 175
